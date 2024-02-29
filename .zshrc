@@ -28,6 +28,7 @@ if [[ $(uname) == "Darwin" ]]; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 elif command -v dnf > /dev/null; then
     source /usr/share/fzf/shell/key-bindings.zsh
+else
     echo 'Unknown OS!'
 fi
 
