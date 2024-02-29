@@ -18,12 +18,18 @@ plug "romkatv/powerlevel10k"
 
 #alias
 alias nv='nvim'
-alias p='python'
+alias p='python3'
 alias get_idf='. $HOME/Documents/programming/c/esp/esp-idf/export.sh'
 alias cl='clear'
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
-source /usr/share/fzf/shell/key-bindings.zsh
+# What OS are we running?
+if [[ $(uname) == "Darwin" ]]; then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+elif command -v dnf > /dev/null; then
+    source /usr/share/fzf/shell/key-bindings.zsh
+    echo 'Unknown OS!'
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
