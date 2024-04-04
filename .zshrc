@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
 
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
@@ -46,12 +52,9 @@ zle -N clear-scrollback-and-screen
 # bindkey -M vicmd "^x" clear-scrollback-and-screen
 # bindkey "^x" clear-scrollback-and-screen
 
-tmux-sess () {
-  tmux-sessionizer
-}
-zle -N tmux-sess
-bindkey -M vicmd "^f" tmux-sess
-bindkey "^f" tmux-sess
+
+bindkey -s '^f' 'tmux-sessionizer^M'
+
 
 tldr-s () {
     tldr-search.sh
