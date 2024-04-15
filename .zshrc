@@ -57,7 +57,7 @@ bindkey -s '^f' 'tmux-sessionizer^M'
 
 
 tldr-s () {
-    tldr-search.sh
+    tldr-search
     zle reset-prompt
 }
 
