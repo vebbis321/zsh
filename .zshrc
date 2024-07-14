@@ -30,7 +30,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
 
 # vi mode
-VI_MODE_SET_CURSOR=true
+VI_MODE_SET_CURSOR=false
 
 source $ZSH/oh-my-zsh.sh
 
