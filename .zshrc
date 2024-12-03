@@ -64,5 +64,9 @@ export NVM_DIR="$HOME/.nvm"
 # funcions / key key-bindings
 bindkey -s '^f' 'tmux-sessionizer^M'
 
+kitty-reload() {
+    kill -SIGUSR1 $(pgrep kitty)
+}
+
 # nvim
 export EDITOR="/usr/bin/nvim"
